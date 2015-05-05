@@ -299,7 +299,7 @@ if (!function_exists("nxs_doPublishToPK")) { //## Second Function to Post to TR
         if (stripos($twMsgFormat, '%RAWTEXT%')!==false) { $pRawText = nsTrnc(strip_tags($pRawText), $twLim); $twMsgFormat = str_ireplace("%FULLTEXT%", $pRawText, $twMsgFormat); $twLim = $twLim - strlen($pRawText); }          
         $options['pkMsgFormat'] = nsFormatMessage($twMsgFormat, $postID, $addParams);         
     } 
-    if (isset($options['attchImg']) && $options['attchImg']=='1' ) if (!empty($options['imgToUse'])) $imgURL = $options['imgToUse']; else $imgURL = nxs_getPostImage($postID, 'large'); else $imgURL='';
+    if (isset($options['attchImg']) && $options['attchImg']=='1' ) if (!empty($options['imgToUse'])) $imgURL = $options['imgToUse']; else $imgURL = nxs_getPostImage($postID, 'full'); else $imgURL='';
     if (preg_match("/noImg.\.png/i", $imgURL)) $imgURL = ''; 
     //## Post             
     $message = array('siteName'=>$blogTitle, 'tags'=>'', 'imageURL'=>$imgURL);// prr($message);

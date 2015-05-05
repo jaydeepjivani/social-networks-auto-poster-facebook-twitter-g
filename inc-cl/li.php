@@ -407,14 +407,14 @@ if (!function_exists("nxs_doPublishToLI")) { //## Second Function to Post to LI
         if ($options['liAttch']=='1') { 
         if (trim($options['liMsgAFrmt'])!='') { $urlDescr = nsFormatMessage($options['liMsgAFrmt'], $postID, $addParams); } else { 
             $urlDescr = trim(apply_filters('the_content', $post->post_excerpt)); if ($urlDescr=='') $urlDescr = apply_filters('the_content', $post->post_content);  
-        } if (trim($options['imgToUse'])!='') $imgURL = $options['imgToUse']; else $imgURL = nxs_getPostImage($postID, 'large');
+        } if (trim($options['imgToUse'])!='') $imgURL = $options['imgToUse']; else $imgURL = nxs_getPostImage($postID, 'full');
         if (preg_match("/noImg.\.png/i", $imgURL)) $imgURL = '';          
         $urlDescr = strip_tags($urlDescr); $urlDescr = nxs_decodeEntitiesFull($urlDescr); $urlDescr = nxs_html_to_utf8($urlDescr);  $urlDescr = nsTrnc($urlDescr, 300);        
         
       }  
     }
     $extInfo = ' | PostID: '.$postID." - ".(isset($post) && is_object($post)?$post->post_title:''); 
-    //$images = array(nxs_getPostImage($postID, 'thumb'), nxs_getPostImage($postID, 'medium'), nxs_getPostImage($postID, 'large'), nxs_getPostImage($postID, 'original')); 
+    //$images = array(nxs_getPostImage($postID, 'thumb'), nxs_getPostImage($postID, 'medium'), nxs_getPostImage($postID, 'full'), nxs_getPostImage($postID, 'original')); 
     $message = array('url'=>$urlToGo, 'surl'=>$urlToGo, 'urlDescr'=>$urlDescr, 'urlTitle'=>$title, 'title'=>$title, 'imageURL' => $imgURL, 'videoCode'=>'', 'videoURL'=>'', 'siteName'=>$blogTitle, 'cats'=>'', 'authorName'=>'');   
     //## Actual Post
     $ntToPost = new nxs_class_SNAP_LI(); $ret = $ntToPost->doPostToNT($options, $message);

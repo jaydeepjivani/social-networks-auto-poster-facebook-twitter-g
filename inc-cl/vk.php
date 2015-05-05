@@ -320,7 +320,7 @@ if (!function_exists("nxs_doPublishToVK")) { //## Second Function to Post to VK
       }       
       $extInfo = ' | PostID: '.$postID." - ".(is_object($post)?$post->post_title:'').' |'.$options['pType'];    
       //## Message & Format                 
-      if (trim($options['imgToUse'])!='') $imgURL = $options['imgToUse']; else $imgURL = nxs_getPostImage($postID, 'large'); if (preg_match("/noImg.\.png/i", $imgURL)) $imgURL = '';       
+      if (trim($options['imgToUse'])!='') $imgURL = $options['imgToUse']; else $imgURL = nxs_getPostImage($postID, 'full'); if (preg_match("/noImg.\.png/i", $imgURL)) $imgURL = '';       
       
       if (function_exists('nxs_doPostToVK')) { $vids = nsFindVidsInPost($post); if (count($vids)>0) {        
           if (strlen($vids[0])==11) { $vidURL = 'http://www.youtube.com/watch?v='.$vids[0]; $imgURL = 'http://img.youtube.com/vi/'.$vids[0].'/maxresdefault.jpg'; } 

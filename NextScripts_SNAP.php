@@ -323,7 +323,7 @@ function nxs_ogtgCallback($content){ global $post, $plgn_NS_SNAutoPoster;
     } */
     
       
-      $imgURL = nxs_getPostImage($post->ID, 'large', $options['ogImgDef']); if (!empty($imgURL)) $ogimgs[] = $imgURL;
+      $imgURL = nxs_getPostImage($post->ID, 'full', $options['ogImgDef']); if (!empty($imgURL)) $ogimgs[] = $imgURL;
       $imgsFromPost = nsFindImgsInPost($post, (int)$options['advFindOGImg']==1);           
       if ($imgsFromPost !== false && is_singular() && is_array($ogimgs) && is_array($imgsFromPost))  $ogimgs = array_merge($ogimgs, $imgsFromPost);       
     }       

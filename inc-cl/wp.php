@@ -227,7 +227,7 @@ if (!function_exists("nxs_doPublishToWP")) { //## Second Function to Post to WP
       $extInfo = ' | PostID: '.$postID." - ".(!empty($post) && is_object($post)?$post->post_title:'');
       
       //## Message & Format           
-      if (trim($options['imgToUse'])!='') $imgURL = $options['imgToUse']; else $imgURL = nxs_getPostImage($postID, 'large'); 
+      if (trim($options['imgToUse'])!='') $imgURL = $options['imgToUse']; else $imgURL = nxs_getPostImage($postID, 'full'); 
       $message = array('siteName'=>$blogTitle, 'url'=>$urlToGo, 'imageURL'=>$imgURL, 'tags'=>$tags, 'cats'=>$cats, 'authorName'=>'', 'orID'=>$postID);    
       //## Actual Post
       $ntToPost = new nxs_class_SNAP_WP(); $ret = $ntToPost->doPostToNT($options, $message);
